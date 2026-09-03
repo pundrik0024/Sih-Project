@@ -1,0 +1,103 @@
+{
+  "model_name": "UniShield Hybrid Threat Detector",
+  "version": "v1.2.0-ntro",
+  "trained_at": "2026-08-27T18:03:54.787631+00:00",
+  "total_samples": 7500,
+  "train_samples": 5625,
+  "test_samples": 1875,
+  "accuracy": 1.0,
+  "precision": 1.0,
+  "recall": 1.0,
+  "f1_score": 1.0,
+  "labels": [
+    "Abnormal Outbound Traffic",
+    "Botnet-like Behaviour",
+    "Brute Force",
+    "Data Exfiltration",
+    "Denial-of-Service-like Traffic",
+    "Normal Traffic",
+    "Port Scanning"
+  ],
+  "confusion_matrix": [
+    [
+      56,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      56,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      113,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      169,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      56,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1313,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      112
+    ]
+  ],
+  "feature_importances": {
+    "bytes_sent": 0.12912567633207414,
+    "bytes_received": 0.1520211443642391,
+    "packet_count": 0.11406136497659569,
+    "connection_duration": 0.117682978460878,
+    "connections_per_minute": 0.14300917495230278,
+    "upload_download_ratio": 0.13537310237585395,
+    "destination_reputation": 0.08529459647609101,
+    "is_external": 0.0015833648305941495,
+    "hour_of_day": 0.00017363121386898423,
+    "is_off_hours": 0.002263477209993403,
+    "dst_port": 0.04265893519027124,
+    "unusual_destination": 0.010321351816206074,
+    "new_device": 0.0018844218047580524,
+    "baseline_deviation": 0.06454677999627341
+  },
+  "dataset_notice": "Prototype model trained using reproducible synthetic/labeled network-flow dataset."
+}

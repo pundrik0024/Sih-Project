@@ -1,7 +1,7 @@
 {
   "model_name": "UniShield Hybrid Threat Detector",
   "version": "v1.2.0-ntro",
-  "trained_at": "2026-08-27T18:03:54.787631+00:00",
+  "trained_at": "2026-09-03T22:17:50.569295+00:00",
   "total_samples": 7500,
   "train_samples": 5625,
   "test_samples": 1875,

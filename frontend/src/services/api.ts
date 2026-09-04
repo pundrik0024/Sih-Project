@@ -1,6 +1,18 @@
 import { AuthResponse, User, NetworkFlow, Alert, Incident, Employee, Department, AuditLog, MLStatus } from '../types';
 
-const API_BASE = '/api/v1';
+/**
+ * Use the Render API directly in deployed builds. A relative URL would resolve
+ * against the Vercel frontend, and Vite's development proxy is not available
+ * after deployment.
+ *
+ * Local development intentionally falls back to `/api/v1`, which Vite proxies
+ * to http://localhost:8000 (see vite.config.ts).
+ */
+const configuredApiBase = import.meta.env.VITE_API_BASE_URL?.trim();
+const productionApiBase = 'https://unishield-ri4l.onrender.com/api/v1';
+const API_BASE = (
+  configuredApiBase || (import.meta.env.PROD ? productionApiBase : '/api/v1')
+).replace(/\/+$/, '');
 
 function getHeaders(): HeadersInit {
   const token = localStorage.getItem('aegis_token');

@@ -119,6 +119,28 @@ npm run dev
 ```
 Open [http://localhost:5173](http://localhost:5173) in your browser.
 
+### Vercel frontend + Render backend
+
+The frontend must call the Render service directly in production. In the
+Vercel project settings, add this environment variable for the Production
+environment (and Preview too, if applicable), then redeploy:
+
+```text
+VITE_API_BASE_URL=https://unishield-ri4l.onrender.com/api/v1
+```
+
+On Render, set `BACKEND_CORS_ORIGINS` to a JSON list containing the deployed
+Vercel origin, then redeploy the backend:
+
+```text
+BACKEND_CORS_ORIGINS=["https://unishield-henna.vercel.app"]
+```
+
+Do not use the Vercel URL as `VITE_API_BASE_URL`; it hosts only the static
+frontend and has no `/api/v1` proxy in production. Locally, leave
+`VITE_API_BASE_URL` unset—the Vite development proxy continues to use
+`http://localhost:8000`.
+
 ---
 
 ## 5. Automated Verification Tests
